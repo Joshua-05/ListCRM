@@ -18,3 +18,11 @@ export class UserResponse {
     @IsString()
     email: string
 }
+
+export class UserLoginDTO {
+    @IsString()
+    email: string;
+
+    @IsString()
+    password: string;
+  }
