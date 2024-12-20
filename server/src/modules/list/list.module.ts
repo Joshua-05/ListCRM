@@ -5,9 +5,10 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { List } from './models/list.model';
 import { User } from '../auth/model/user.model';
 import { Product } from '../product/models/product.model';
+import { ProductModule } from '../product/product.module';
 
 @Module({
-  imports: [SequelizeModule.forFeature([List, User, Product])],
+  imports: [SequelizeModule.forFeature([List, User, Product]), ProductModule],
   controllers: [ListController],
   providers: [ListService]
 })

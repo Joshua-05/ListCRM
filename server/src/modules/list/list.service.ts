@@ -1,24 +1,36 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { List } from './models/list.model';
 import { DeleteListDTO, ListDTO } from './dto';
 import { ProductService } from '../product/product.service';
 import { Product } from '../product/models/product.model';
+import { User } from '../auth/model/user.model';
 
 @Injectable()
 export class ListService {
     constructor(
         @InjectModel(List) private readonly listRepository: typeof List,
+        @InjectModel(User) private readonly userRepository: typeof User,
         private productService: ProductService
     ){}
 
-    async create(dto: ListDTO): Promise<ListDTO> {
-        
+    async create(dto: ListDTO): Promise<boolean> {
+
+        const user = await this.userRepository.findByPk(dto.userId)
+        if (!user){
+            throw new NotFoundException('this user unexist')
+        }
         const list = await this.listRepository.create({
             title: dto.title,
             userId: dto.userId,
             access: dto.access
         })
+
+        if (!user.lists) {
+            user.lists = [];
+        }
+        await user.lists.push(list)
+        await user.save()
 
         const productList = {
             listId: list.id,
@@ -26,14 +38,17 @@ export class ListService {
         }
 
         await this.productService.createProduct(productList)
-        return dto
+        return true
     }
 
     async findAllUserList(userId: number){
         return this.listRepository.findAll({
                 where: {userId: userId},
                 order: [['id', 'ASC']],
-                include: [Product]
+                include: [{
+                    model: Product,
+                    attributes: ['name', 'quantity', 'price']
+                }]
             }  
         )
     }

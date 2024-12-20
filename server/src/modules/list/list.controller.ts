@@ -9,7 +9,7 @@ export class ListController {
     ){}
 
     @Post('create')
-    create(@Body() dto: ListDTO): Promise<ListDTO>{
+    create(@Body() dto: ListDTO): Promise<boolean>{
         return this.listService.create(dto)
     }
 
