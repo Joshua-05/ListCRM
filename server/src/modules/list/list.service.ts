@@ -10,6 +10,7 @@ export class ListService {
     ){}
 
     async create(dto: ListDTO): Promise<ListDTO> {
+        
         await this.listRepository.create({
             title: dto.title,
             userId: dto.userId,

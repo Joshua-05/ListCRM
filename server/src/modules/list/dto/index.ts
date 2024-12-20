@@ -1,4 +1,5 @@
-import { IsBoolean, IsNumber, IsString } from "class-validator";
+import {  IsArray, IsBoolean, IsNumber, IsString } from "class-validator";
+import { ProductDTO } from "src/modules/product/dto";
 
 export class ListDTO {
     @IsString()
@@ -6,6 +7,9 @@ export class ListDTO {
 
     @IsNumber()
     userId: number
+
+    @IsArray()
+    products: ProductDTO[]
 
     @IsBoolean()
     access: boolean
