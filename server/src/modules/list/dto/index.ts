@@ -10,3 +10,8 @@ export class ListDTO {
     @IsBoolean()
     access: boolean
 }
+
+export class DeleteListDTO {
+    @IsNumber()
+    listId: number
+}

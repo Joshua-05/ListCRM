@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { List } from './models/list.model';
-import { ListDTO } from './dto';
+import { DeleteListDTO, ListDTO } from './dto';
 
 @Injectable()
 export class ListService {
@@ -16,5 +16,12 @@ export class ListService {
             access: dto.access
         })
         return dto
+    }
+
+    async destroy(dto: DeleteListDTO): Promise<boolean>{
+        await this.listRepository.destroy({
+            where: {id: dto.listId}
+        })
+        return true
     }
 }
