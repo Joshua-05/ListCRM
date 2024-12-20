@@ -16,4 +16,7 @@ export class List extends Model {
 
     @HasMany(() => Product)
     products: Product[]
+
+    @Column
+    access: boolean;
 }
