@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ListService } from './list.service';
 import { DeleteListDTO, ListDTO } from './dto';
 
@@ -11,6 +11,11 @@ export class ListController {
     @Post('create')
     create(@Body() dto: ListDTO): Promise<ListDTO>{
         return this.listService.create(dto)
+    }
+
+    @Get('getList/:id')
+    getAllList(@Param('id') id: number){
+        return this.listService.findAllUserList(id)
     }
 
     @Post('delete')
