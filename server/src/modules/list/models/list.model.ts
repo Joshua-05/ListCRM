@@ -5,7 +5,7 @@ import { Product } from "src/modules/product/models/product.model";
 @Table
 export class List extends Model {
     @Column
-    name: string;
+    title: string;
 
     @ForeignKey(() => User)
     @Column

@@ -1,5 +1,6 @@
-import { Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { ListService } from './list.service';
+import { ListDTO } from './dto';
 
 @Controller('list')
 export class ListController {
@@ -8,5 +9,7 @@ export class ListController {
     ){}
 
     @Post('create')
-    create(){}
+    create(@Body() dto: ListDTO): Promise<ListDTO>{
+        return this.listService.create(dto)
+    }
 }
