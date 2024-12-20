@@ -1,4 +1,5 @@
-import { Column, Model, Table } from "sequelize-typescript";
+import { Column, HasMany, Model, Table } from "sequelize-typescript";
+import { List } from "src/modules/list/models/list.model";
 
 @Table
 export class User extends Model {
@@ -10,4 +11,7 @@ export class User extends Model {
 
     @Column
     password: string
+
+    @HasMany(() => List)
+    lists: List[]
 }
