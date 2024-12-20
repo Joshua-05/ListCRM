@@ -5,6 +5,8 @@ import { AuthModule } from '../auth/auth.module';
 import { User } from '../auth/model/user.model';
 import { ListModule } from '../list/list.module';
 import { List } from '../list/models/list.model';
+import { ProductModule } from '../product/product.module';
+import { Product } from '../product/models/product.model';
 
 @Module({
   imports: [
@@ -18,12 +20,13 @@ import { List } from '../list/models/list.model';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      models: [User, List],
+      models: [User, List, Product],
       autoLoadModels: true,
       synchronize: true,
     }),
     AuthModule,
-    ListModule
+    ListModule,
+    ProductModule
   ],
   controllers: [],
   providers: [],
