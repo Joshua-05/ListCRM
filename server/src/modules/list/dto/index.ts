@@ -19,3 +19,11 @@ export class DeleteListDTO {
     @IsNumber()
     listId: number
 }
+
+export class PublicateListDTO {
+    @IsNumber()
+    id: number
+
+    @IsBoolean()
+    access: boolean
+}

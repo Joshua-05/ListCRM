@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ListService } from './list.service';
-import { DeleteListDTO, ListDTO } from './dto';
+import { DeleteListDTO, ListDTO, PublicateListDTO } from './dto';
 
 @Controller('list')
 export class ListController {
@@ -21,5 +21,10 @@ export class ListController {
     @Post('delete')
     destroy(@Body() dto: DeleteListDTO): Promise<boolean>{
         return this.listService.destroy(dto)
+    }
+
+    @Post('update')
+    update(@Body() dto: PublicateListDTO): Promise<boolean>{
+        return this.listService.update(dto)
     }
 }
