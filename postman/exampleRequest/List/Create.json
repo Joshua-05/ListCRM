@@ -1,0 +1,27 @@
+{
+    "title": "TestListTwo",
+    "userId": 1,
+    "products": [
+        {
+            "name": "Бананы",
+            "quantity": "2кг",
+            "price": 200
+        },
+        {
+            "name": "Молоко",
+            "quantity": "900л",
+            "price": 50
+        },
+        {
+            "name": "Мёд",
+            "quantity": "400гр",
+            "price": 450
+        },
+        {
+            "name": "Яица",
+            "quantity": "10шт",
+            "price": 70
+        }
+    ],
+    "access": false
+}
