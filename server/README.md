@@ -1,13 +1,12 @@
 ## Запуск сервера "npm run start:dev"
 
 ## Полезные ссылки
-```
 
-* *Документация по запросам* [http://localhost:3000/api](http://localhost:3000/api) <br/>
-* *Документация по фреймворку* [https://docs.nestjs.com/](https://docs.nestjs.com/) <br/>
-* *Документация по sequelize-typescript* [https://github.com/sequelize/sequelize-typescript](https://github.com/sequelize/sequelize-typescript) <br/>
-* *Ссылка на репозиторий* [https://github.com/Joshua-05/ListCRM](https://github.com/Joshua-05/ListCRM) <br/>
-```
+* *Документация по запросам*: [http://localhost:3000/api](#http://localhost:3000/api) <br/>
+* *Документация по фреймворку*: [https://docs.nestjs.com/](#https://docs.nestjs.com/) <br/>
+* *Документация по sequelize-typescript*: [https://github.com/sequelize/sequelize-typescript](#https://github.com/sequelize/sequelize-typescript) <br/>
+* *Ссылка на репозиторий*: [https://github.com/Joshua-05/ListCRM](#https://github.com/Joshua-05/ListCRM) <br/>
+
 
 <ins> Как структурировать запросы с клиента описано в папке postman/exampleRequest </ins>
 
