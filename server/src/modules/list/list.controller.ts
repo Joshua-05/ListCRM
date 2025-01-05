@@ -18,9 +18,9 @@ export class ListController {
 
     @ApiTags('List')
     @ApiResponse({ status: 200, type: Array })
-    @Get('getList/:id')
-    getAllList(@Param('id') id: number){
-        return this.listService.findAllUserList(id)
+    @Get('getAllList')
+    getAllList(){
+        return this.listService.findAllList()
     }
 
     @ApiTags('List')

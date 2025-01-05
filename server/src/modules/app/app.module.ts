@@ -2,11 +2,12 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { AuthModule } from '../auth/auth.module';
-import { User } from '../auth/model/user.model';
+import { User } from '../user/model/user.model';
 import { ListModule } from '../list/list.module';
 import { List } from '../list/models/list.model';
 import { ProductModule } from '../product/product.module';
 import { Product } from '../product/models/product.model';
+import { UserModule } from '../user/user.module';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { Product } from '../product/models/product.model';
     }),
     AuthModule,
     ListModule,
-    ProductModule
+    ProductModule,
+    UserModule
   ],
   controllers: [],
   providers: [],

@@ -4,7 +4,7 @@ import { List } from './models/list.model';
 import { DeleteListDTO, ListDTO, PublicateListDTO } from './dto';
 import { ProductService } from '../product/product.service';
 import { Product } from '../product/models/product.model';
-import { User } from '../auth/model/user.model';
+import { User } from '../user/model/user.model';
 import { access } from 'fs';
 import { where } from 'sequelize';
 
@@ -71,5 +71,10 @@ export class ListService {
         (await list).save()
 
         return true
+    }
+
+    async findAllList(){
+        const lists = await this.listRepository.findAll()
+        return lists
     }
 }
