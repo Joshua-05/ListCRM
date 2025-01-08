@@ -16,8 +16,7 @@ export class UserService {
 
     async findUserByEmail(email: string) {
         return this.userRepository.findOne({
-             where: { email: email },
-             attributes: { exclude: ['password', 'updatedAt'] },
+             where: { email: email }
         }); 
     }
 
