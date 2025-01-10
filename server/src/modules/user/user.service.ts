@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { User } from '../user/model/user.model';
 import * as bcrypt from 'bcrypt'
-import { CreateUserDTO, UpdateUserDTO } from '../user/dto';
+import { CreateUserDTO, FindListDTO, UpdateUserDTO } from '../user/dto';
 
 @Injectable()
 export class UserService {
@@ -18,6 +18,13 @@ export class UserService {
         return this.userRepository.findOne({
              where: { email: email }
         }); 
+    }
+
+    async findUserById(dto: FindListDTO): Promise<string>{
+        const user = await this.userRepository.findOne({
+            where: { id: dto.id}
+        })
+        return user.username
     }
 
     async createUser(dto: CreateUserDTO): Promise<CreateUserDTO> {

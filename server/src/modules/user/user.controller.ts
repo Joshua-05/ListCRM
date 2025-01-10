@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Req, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
-import { UpdateUserDTO } from './dto';
+import { FindListDTO, UpdateUserDTO } from './dto';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ListService } from '../list/list.service';
 
@@ -27,9 +27,16 @@ export class UserController {
 
     @ApiTags('User')
     @ApiResponse({ status: 200, type: Array })
-    @Get('getList/:id')
-    getAllList(@Param('id') id: number){
-        return this.listService.findAllUserList(id)
+    @Post('getList')
+    getAllList(@Body() dto: FindListDTO){
+        return this.listService.findAllUserList(dto)
+    }
+
+    @ApiTags('User')
+    @ApiResponse({ status: 200, type: String })
+    @Post('getAuthor')
+    getFindAuthor(@Body() dto: FindListDTO): Promise<string>{
+        return this.userService.findUserById(dto)
     }
 
     @ApiTags('User')

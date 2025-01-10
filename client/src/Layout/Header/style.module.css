@@ -1,0 +1,38 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+.navigarion ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navigarion li {
+    margin-left: 20px; 
+}
+
+.navigarion a {
+    text-decoration: none;
+    font-size: 28px;
+    color: #339AF0; 
+}
+
+.navigarion a:hover {
+    text-decoration: underline; 
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo p {
+    font-size: 32px;
+    font-weight: bold;
+    color: #339AF0;
+}

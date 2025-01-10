@@ -1,0 +1,18 @@
+.allListsContainer {
+	padding: 20px;
+	display: flex;
+}
+
+.content {
+	display: flex;
+}
+
+.filters {
+	margin: 0px 20px;
+	box-sizing: border-box;
+	width: 350px;
+}
+
+/* .list {
+	display: flex;
+} */

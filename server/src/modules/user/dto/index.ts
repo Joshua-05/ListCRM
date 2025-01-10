@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger"
-import { IsString } from "class-validator"
+import { IsNumber, IsString } from "class-validator"
 
 export class CreateUserDTO {
     @ApiProperty()
@@ -23,4 +23,10 @@ export class UpdateUserDTO {
     @ApiProperty()
     @IsString()
     email: string;
-  }
+}
+
+export class FindListDTO {
+    @ApiProperty()
+    @IsNumber()
+    id: number;
+}

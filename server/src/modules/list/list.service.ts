@@ -7,6 +7,7 @@ import { Product } from '../product/models/product.model';
 import { User } from '../user/model/user.model';
 import { access } from 'fs';
 import { where } from 'sequelize';
+import { FindListDTO } from '../user/dto';
 
 @Injectable()
 export class ListService {
@@ -43,9 +44,9 @@ export class ListService {
         return true
     }
 
-    async findAllUserList(userId: number){
+    async findAllUserList(dto : FindListDTO){
         return this.listRepository.findAll({
-                where: {userId: userId},
+                where: {userId: dto.id},
                 order: [['id', 'ASC']],
                 include: [{
                     model: Product,
@@ -74,7 +75,13 @@ export class ListService {
     }
 
     async findAllList(){
-        const lists = await this.listRepository.findAll()
+        const lists = await this.listRepository.findAll({
+            where: {access: true},
+            include: [{
+                model: Product,
+                attributes: ['name', 'quantity', 'price']
+            }]
+        })
         return lists
     }
 }
